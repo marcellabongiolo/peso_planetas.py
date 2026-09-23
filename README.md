@@ -1,71 +1,123 @@
-# 🪐 Planetary Weight Calculator (`peso_planetas.py`)
+# 🪐 Calculadora de Peso Planetário
 
-<p align="center">
-  <!-- Ícone animado simulando o espaço/planetas -->
-  <img src="https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gitHub-config/gitHub-stats.svg" width="100%" />
-</p>
+Um projeto em Python que calcula como o peso de uma pessoa seria diferente em planetas e outros corpos celestes do Sistema Solar, usando fatores de gravidade relativos à Terra.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" alt="Status">
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="License">
-</p>
+> Projeto desenvolvido para praticar fundamentos de Python, estruturas de repetição, dicionários, funções, validação de entrada e organização de código.
 
----
+## ✨ Funcionalidades
 
-## 🌌 About the Project
+- Calcula o peso informado na Terra em diferentes corpos celestes.
+- Inclui Mercúrio, Vênus, Terra, Marte, Júpiter, Saturno, Urano, Netuno e Lua.
+- Valida valores menores ou iguais a zero.
+- Trata entradas que não são numéricas.
+- Exibe os resultados em uma tabela no terminal.
+- Mantém os fatores de gravidade centralizados em uma constante.
 
-**`peso_planetas.py`** is an interactive Python script that calculates your body weight on different planets of our Solar System based on your Earth weight and the specific surface gravity of each celestial body. 
+## 🧮 Como funciona
 
-As a Software Engineering student at UNESC, I developed this project to practice control structures, mathematical formulas, and clean input/output formatting in Python.
+O cálculo utiliza a relação:
 
----
+```
+peso_no_corpo_celeste = peso_na_Terra × fator_de_gravidade
+```
 
-## 🌍 Planetary Gravity Reference
+Por exemplo, se uma pessoa informa **60 kg** e Marte possui um fator de aproximadamente **0,38**, o programa calcula:
 
-The script uses standard physics formulas based on the surface gravity acceleration ($g$) of each planet compared to Earth ($1g$):
+```
+60 × 0,38 = 22,80 kg
+```
 
-| Planet | Gravity Factor ($g$) | Description |
-| :--- | :---: | :--- |
-| **Mercury** | $0.38$ | Lighter due to smaller mass |
-| **Venus** | $0.91$ | Slightly lower than Earth |
-| **Mars** | $0.38$ | Red planet's reduced gravity |
-| **Jupiter** | $2.34$ | Massive gas giant (very heavy!) |
-| **Saturn** | $1.06$ | Ringed giant, close to Earth's feel |
-| **Uranus** | $0.92$ | Ice giant |
-| **Neptune** | $1.19$ | Outer ice giant |
+Os valores utilizados são fatores relativos à gravidade da Terra e representam uma simulação do peso equivalente em cada corpo celeste.
 
----
+## 🛠️ Tecnologias
 
-## 🚀 How to Run
+- **Python 3**
+- Biblioteca padrão do Python
+- Testes com **unittest**
 
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/marcellabongiolo/peso_planetas.git](https://github.com/marcellabongiolo/peso_planetas.git)
-cd peso_planetas
-python peso_planetas.py
-# Quick look at how the calculation logic works:
-gravity_factors = {
-    "Mercury": 0.38,
-    "Venus": 0.91,
-    "Mars": 0.38,
-    "Jupiter": 2.34,
-    "Saturn": 1.06,
-    "Uranus": 0.92,
-    "Neptune": 1.19
-}
+## 📁 Estrutura do projeto
 
-earth_weight = float(input("Enter your weight on Earth (kg): "))
-for planet, factor in gravity_factors.items():
-    planet_weight = earth_weight * factor
-    print(f"Your weight on {planet}: {planet_weight:.2f} kg")
-    👩‍💻 Author
-Marcella Bongiolo
+```
+peso_planetas.py/
+├── calculadora_planetas.py
+├── tests/
+│   └── test_calculadora_planetas.py
+├── .gitignore
+├── LICENSE
+└── README.md
+```
 
-Software Engineering Student at UNESC
+## 🚀 Como executar
 
-GitHub: github.com/marcellabongiolo
+### 1. Clone o repositório
 
-LinkedIn: linkedin.com/in/marcellabongiolo
+```bash
+git clone https://github.com/marcellabongiolo/peso_planetas.py.git
+cd peso_planetas.py
+```
 
-   
+### 2. Execute o programa
+
+```bash
+python calculadora_planetas.py
+```
+
+No Windows, caso o comando acima não funcione:
+
+```bash
+py calculadora_planetas.py
+```
+
+### 3. Informe seu peso
+
+Digite seu peso na Terra em quilogramas quando solicitado.
+
+## 🧪 Executando os testes
+
+O projeto possui testes automatizados para verificar os cálculos e as validações de entrada.
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+## 🌍 Corpos celestes
+
+| Corpo celeste | Fator relativo à Terra |
+|---|---:|
+| Mercúrio | 0,38 |
+| Vênus | 0,91 |
+| Terra | 1,00 |
+| Marte | 0,38 |
+| Júpiter | 2,34 |
+| Saturno | 0,93 |
+| Urano | 0,92 |
+| Netuno | 1,12 |
+| Lua | 0,165 |
+
+## 📚 Conceitos praticados
+
+Este projeto trabalha conceitos importantes para quem está começando em desenvolvimento de software:
+
+- Variáveis e constantes
+- Dicionários
+- Funções
+- Estruturas de repetição
+- Condicionais
+- Tratamento de exceções
+- Formatação de strings
+- Type hints
+- Testes automatizados
+- Organização de projetos
+
+## 👩‍💻 Autora
+
+**Marcella Bongiolo**
+
+Estudante de Engenharia de Software.
+
+- GitHub: [@marcellabongiolo](https://github.com/marcellabongiolo)
+- LinkedIn: [Marcella Bongiolo](https://www.linkedin.com/in/marcellabongiolo/)
+
+## 📄 Licença
+
+Este projeto está disponível sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais informações.
