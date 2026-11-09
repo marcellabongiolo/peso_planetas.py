@@ -20,6 +20,16 @@ class TestCalculadoraPlanetas(unittest.TestCase):
         with self.assertRaises(ValueError):
             calcular_pesos(-10)
 
+    def test_rejeita_nao_finitos_e_overflow(self):
+        for valor in (float("nan"), float("inf"), float("-inf"), 1.7e308):
+            with self.subTest(valor=valor), self.assertRaises(ValueError):
+                calcular_pesos(valor)
+
+    def test_rejeita_tipos_invalidos(self):
+        for valor in (True, "60", None):
+            with self.subTest(valor=valor), self.assertRaises(TypeError):
+                calcular_pesos(valor)
+
 
 if __name__ == "__main__":
     unittest.main()

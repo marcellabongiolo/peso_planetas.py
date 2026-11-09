@@ -5,6 +5,8 @@ Calcula o peso equivalente de uma pessoa em diferentes corpos celestes
 a partir do peso informado na Terra.
 """
 
+import math
+
 GRAVIDADES_PLANETAS = {
     "Mercúrio": 0.38,
     "Vênus": 0.91,
@@ -20,13 +22,18 @@ GRAVIDADES_PLANETAS = {
 
 def calcular_pesos(peso_terrestre: float) -> dict[str, float]:
     """Retorna o peso equivalente em cada corpo celeste."""
-    if peso_terrestre <= 0:
+    if isinstance(peso_terrestre, bool) or not isinstance(peso_terrestre, (int, float)):
+        raise TypeError("O peso deve ser um número.")
+    if not math.isfinite(peso_terrestre) or peso_terrestre <= 0:
         raise ValueError("O peso deve ser maior que zero.")
 
-    return {
+    pesos = {
         corpo_celeste: peso_terrestre * fator
         for corpo_celeste, fator in GRAVIDADES_PLANETAS.items()
     }
+    if not all(math.isfinite(peso) for peso in pesos.values()):
+        raise ValueError("Peso fora do intervalo numérico suportado.")
+    return pesos
 
 
 def exibir_resultados(peso_terrestre: float, pesos: dict[str, float]) -> None:
